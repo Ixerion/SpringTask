@@ -15,13 +15,24 @@ public class Event extends DomainObject {
 
     private String name;
 
-    private NavigableSet<LocalDateTime> airDates = new TreeSet<>();
+    private NavigableSet<LocalDateTime> airDates;
 
     private double basePrice;
 
     private EventRating rating;
 
-    private NavigableMap<LocalDateTime, Auditorium> auditoriums = new TreeMap<>();
+    private NavigableMap<LocalDateTime, Auditorium> auditoriums;
+
+    public Event(String name, double basePrice, EventRating rating) {
+        this.name = name;
+        this.basePrice = basePrice;
+        this.rating = rating;
+        airDates = new TreeSet<>();
+        auditoriums = new TreeMap<>();
+    }
+
+    public Event() {
+    }
 
     /**
      * Checks if event is aired on particular <code>dateTime</code> and assigns
