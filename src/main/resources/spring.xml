@@ -78,6 +78,7 @@
 
     <bean id="bookingService" class="ua.epam.spring.hometask.service.impl.BookingServiceImpl">
         <property name="bookingDao" ref="bookingDao"/>
+        <property name="discountService" ref="discountService"/>
     </bean>
 
     <bean id="user" class="ua.epam.spring.hometask.domain.User">

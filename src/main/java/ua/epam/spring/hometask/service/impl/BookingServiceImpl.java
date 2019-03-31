@@ -23,8 +23,8 @@ public class BookingServiceImpl implements BookingService {
         double price = 0;
         double basePrice = event.getBasePrice();
         Set<Long> vipSeats = event.getAuditoriums().get(dateTime).getVipSeats();
-        for (Long vipSeat : vipSeats) {
-            if (seats.contains(vipSeat)) {
+        for (Long seat : seats) {
+            if (vipSeats.contains(seat)) {
                 price += basePrice * 1.5;
             } else {
                 price += basePrice;
