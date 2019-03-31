@@ -1,10 +1,12 @@
 package ua.epam.spring.hometask.service.impl;
 
+import org.springframework.stereotype.Component;
 import ua.epam.spring.hometask.domain.User;
 import ua.epam.spring.hometask.service.DiscountStrategy;
 
 import java.time.LocalDateTime;
 
+@Component
 public class DiscountStrategyBirthday implements DiscountStrategy {
 
     private static final int BIRTHDAY_DISCOUNT = 5;

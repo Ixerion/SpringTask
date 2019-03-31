@@ -6,13 +6,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import ua.epam.spring.hometask.config.AppConfiguration;
 import ua.epam.spring.hometask.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:spring.xml")
+@ContextConfiguration(classes = AppConfiguration.class)
 public class UserServiceTest {
 
     @Autowired
@@ -24,7 +25,7 @@ public class UserServiceTest {
         User user = users.get(0);
         userService.save(user);
         List<User> updatedUsers = new ArrayList<>(userService.getAll());
-        Assert.assertEquals("User should not be unique", users.size(), updatedUsers.size());
+        Assert.assertEquals("User should be unique", users.size(), updatedUsers.size());
     }
 
     @Test
