@@ -9,13 +9,11 @@ import ua.epam.spring.hometask.domain.Auditorium;
 import ua.epam.spring.hometask.domain.Event;
 import ua.epam.spring.hometask.domain.User;
 import ua.epam.spring.hometask.service.*;
-import ua.epam.spring.hometask.service.impl.AuditoriumServiceImpl;
-import ua.epam.spring.hometask.service.impl.BookingServiceImpl;
 import ua.epam.spring.hometask.service.impl.DiscountServiceImpl;
 
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 @Component
 public class App {
@@ -27,7 +25,7 @@ public class App {
     public BookingService bookingServiceImpl;
 
     @Autowired
-    public DiscountServiceImpl discountServiceImpl;
+    public DiscountService discountServiceImpl;
 
     @Autowired
     public EventService eventServiceImpl;
@@ -40,7 +38,8 @@ public class App {
         App app = ctx.getBean(App.class);
         Set<Auditorium> auditorums = app.auditoriumServiceImpl.getAll();
         Collection<User> users = app.userServiceImpl.getAll();
-        List<DiscountStrategy> discountStrategyList = app.discountServiceImpl.getDiscountStrategies();
+        DiscountServiceImpl discountService = (DiscountServiceImpl) app.discountServiceImpl;
+        List<DiscountStrategy> discountStrategyList = discountService.getDiscountStrategies();
         Collection<Event> events = app.eventServiceImpl.getAll();
         System.out.println();
         /*DiscountServiceImpl discountService = (DiscountServiceImpl) ctx.getBean("discountService");

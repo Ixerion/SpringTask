@@ -20,9 +20,9 @@ public class DiscountServiceImpl implements DiscountService {
 
     @Override
     public byte getDiscount(@Nullable User user, @Nonnull Event event, @Nonnull LocalDateTime airDateTime, long numberOfTickets) {
-        int discount = 0;
+        byte discount = 0;
         for (DiscountStrategy discountStrategy : discountStrategies) {
-            int discountAmount = discountStrategy.getDiscountStrategy(user, airDateTime, numberOfTickets);
+            byte discountAmount = discountStrategy.getDiscountStrategy(user, airDateTime, numberOfTickets);
             if (discount < discountAmount)
                 discount = discountAmount;
         }

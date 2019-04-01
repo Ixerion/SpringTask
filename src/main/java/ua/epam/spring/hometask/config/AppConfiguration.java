@@ -1,6 +1,5 @@
 package ua.epam.spring.hometask.config;
 
-import org.omg.PortableInterceptor.LOCATION_FORWARD;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
@@ -8,8 +7,6 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import ua.epam.spring.hometask.domain.Auditorium;
 import ua.epam.spring.hometask.domain.User;
 import ua.epam.spring.hometask.service.DiscountStrategy;
-import ua.epam.spring.hometask.service.impl.DiscountStrategyBirthday;
-import ua.epam.spring.hometask.service.impl.DiscountStrategyTenthTicket;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -21,9 +18,9 @@ import java.util.*;
 public class AppConfiguration {
 
     @Autowired
-    private DiscountStrategyBirthday discountStrategyBirthday;
+    private DiscountStrategy discountStrategyBirthday;
     @Autowired
-    private DiscountStrategyTenthTicket discountStrategyTenthTicket;
+    private DiscountStrategy discountStrategyTenthTicket;
     @Value("${auditorum.small.name}")
     private String smallAuditoriumName;
     @Value("${auditorum.small.seats}")
@@ -65,14 +62,6 @@ public class AppConfiguration {
 
     @Bean
     public Set<Auditorium> auditoriums() {
-        /*Auditorium smallAuditorum = new Auditorium();
-        smallAuditorum.setName(smallAuditoriumName);
-        smallAuditorum.setNumberOfSeats(smallAuditoriumSeats);
-        smallAuditorum.setVipSeats(smallAuditoriumVip);*/
-        /*Auditorium bigAuditorum = new Auditorium();
-        bigAuditorum.setName(bigAuditoriumName);
-        bigAuditorum.setNumberOfSeats(bigAuditoriumSeats);
-        bigAuditorum.setVipSeats(bigAuditoriumVip);*/
         Set<Auditorium> auditoriums = new HashSet<>();
         auditoriums.add(smallAuditorium());
         auditoriums.add(bigAuditorium());
@@ -92,11 +81,6 @@ public class AppConfiguration {
     @Bean
     public Map<Long, User> registeredUsers() {
         Map<Long, User> users = new HashMap<>();
-        /*User existedUser = new User();
-        existedUser.setId(1L);
-        existedUser.setFirstName("Ivan");
-        existedUser.setEmail("ivanov@gmail.com");
-        existedUser.setBirthday(LocalDate.of(2003, 10, 10));*/
         users.put(1L, existedUser());
         return users;
     }

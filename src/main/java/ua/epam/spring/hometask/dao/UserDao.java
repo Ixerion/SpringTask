@@ -5,7 +5,6 @@ import ua.epam.spring.hometask.domain.User;
 
 import javax.annotation.Resource;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,7 +12,7 @@ import java.util.Set;
 public class UserDao {
 
     @Resource(name="registeredUsers")
-    private Map<Long, User> registeredUsers = new HashMap<>();
+    private Map<Long, User> registeredUsers;
 
     public User get(Long id) {
         return registeredUsers.get(id);

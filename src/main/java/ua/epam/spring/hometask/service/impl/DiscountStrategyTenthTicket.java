@@ -9,10 +9,17 @@ import java.time.LocalDateTime;
 @Component
 public class DiscountStrategyTenthTicket implements DiscountStrategy {
 
-    private static final int TENTH_TICKET_DISCOUNT = 50;
+    private static final byte TENTH_TICKET_DISCOUNT = 50;
 
     @Override
-    public int getDiscountStrategy(User user, LocalDateTime date, long numberOfTickets) {
+    public byte getDiscountStrategy(User user, LocalDateTime date, long numberOfTickets) {
+        long discountTicketAmount = 0;
+        while (numberOfTickets > 0) {
+            numberOfTickets -= 10;
+            discountTicketAmount++;
+        }
+        long totalPlaces = numberOfTickets - (discountTicketAmount / 2);
+
         return numberOfTickets % 10 == 0 ? 0 : TENTH_TICKET_DISCOUNT;
 
     }

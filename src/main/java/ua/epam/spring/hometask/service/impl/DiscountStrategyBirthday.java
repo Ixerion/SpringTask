@@ -9,10 +9,10 @@ import java.time.LocalDateTime;
 @Component
 public class DiscountStrategyBirthday implements DiscountStrategy {
 
-    private static final int BIRTHDAY_DISCOUNT = 5;
+    private static final byte BIRTHDAY_DISCOUNT = 5;
 
     @Override
-    public int getDiscountStrategy(User user, LocalDateTime date, long numberOfTickets) {
+    public byte getDiscountStrategy(User user, LocalDateTime date, long numberOfTickets) {
         int userBirthday = user.getBirthday().getDayOfYear();
         int plannedDay = date.getDayOfYear();
         if (plannedDay - userBirthday >= 0 && plannedDay - userBirthday < 5) {
