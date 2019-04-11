@@ -44,20 +44,20 @@ public class AppConfiguration {
 
     @Bean
     public Auditorium smallAuditorium() {
-        Auditorium smallAuditorum = new Auditorium();
-        smallAuditorum.setName(smallAuditoriumName);
-        smallAuditorum.setNumberOfSeats(smallAuditoriumSeats);
-        smallAuditorum.setVipSeats(smallAuditoriumVip);
-        return smallAuditorum;
+        Auditorium smallAuditorium = new Auditorium();
+        smallAuditorium.setName(smallAuditoriumName);
+        smallAuditorium.setNumberOfSeats(smallAuditoriumSeats);
+        smallAuditorium.setVipSeats(smallAuditoriumVip);
+        return smallAuditorium;
     }
 
     @Bean
     public Auditorium bigAuditorium() {
-        Auditorium bigAuditorum = new Auditorium();
-        bigAuditorum.setName(bigAuditoriumName);
-        bigAuditorum.setNumberOfSeats(bigAuditoriumSeats);
-        bigAuditorum.setVipSeats(bigAuditoriumVip);
-        return bigAuditorum;
+        Auditorium bigAuditorium = new Auditorium();
+        bigAuditorium.setName(bigAuditoriumName);
+        bigAuditorium.setNumberOfSeats(bigAuditoriumSeats);
+        bigAuditorium.setVipSeats(bigAuditoriumVip);
+        return bigAuditorium;
     }
 
     @Bean

@@ -13,14 +13,6 @@ public class DiscountStrategyTenthTicket implements DiscountStrategy {
 
     @Override
     public byte getDiscountStrategy(User user, LocalDateTime date, long numberOfTickets) {
-        long discountTicketAmount = 0;
-        while (numberOfTickets > 0) {
-            numberOfTickets -= 10;
-            discountTicketAmount++;
-        }
-        long totalPlaces = numberOfTickets - (discountTicketAmount / 2);
-
         return numberOfTickets % 10 == 0 ? 0 : TENTH_TICKET_DISCOUNT;
-
     }
 }

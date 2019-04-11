@@ -18,7 +18,7 @@ public class EventServiceImpl implements EventService {
 
     @Nullable
     @Override
-    public Event getByName(@Nonnull String name) {
+    public Event getEventByName(@Nonnull String name) {
         return eventDao.getAll().stream()
                 .filter(event -> event.getName().equals(name))
                 .findFirst()
